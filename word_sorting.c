@@ -29,7 +29,7 @@ int main(void)
     for (;;)
     {
         printf("> ");
-        fgets(str, 1000, stdin);
+        fgets(str, 100, stdin);
         str[strlen(str) - 1] = '\0'; // 개행 없애기
 
         if (strcmp(str, "end") == 0) break; // exit condition
