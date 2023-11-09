@@ -95,9 +95,19 @@ int evalTyping(char sentence[], char input_str[], double duration)
         else
             printf("^");
     }
-    for (int i = strlen(sentence); input_str[i] != '\0'; i++) // sentence보다 input_str이 더 길다면, sentence 뒤의 문자들은 모두 틀림.
-        printf("^");
-    printf("\n");
+    if (strlen(input_str) < strlen(sentence))
+    {
+        for (int i = strlen(input_str); sentence[i] != '\0'; i++) // input_str보다 sentence가 더 길다면, input_str 뒤의 문자들은 모두 틀림.
+            printf("^");
+        printf("\n");
+    }   
+    else
+    {
+        for (int i = strlen(sentence); input_str[i] != '\0'; i++) // sentence보다 input_str이 더 길다면, sentence 뒤의 문자들은 모두 틀림.
+            printf("^");
+        printf("\n");
+    }
+        
 
     score = round(((double)score / duration * 60.0));
     return score;
