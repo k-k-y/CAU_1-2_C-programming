@@ -15,6 +15,8 @@ void Subtract(char *a, char *b, char *c); // a - b = c;
 // 131412412 - 96374573457 = -96243161045
 // 1 + 999999999999999 = 1000000000000000
 // 1 - 999999999999999 = -999999999999998
+
+
 int main(void)
 {
     char operand1[81];
@@ -42,9 +44,11 @@ int main(void)
         printf("\n");
 
         Add(operand1, operand2, result);
+        reverseStr(result, strlen(result));
         printf("X + Y = %s\n", result);
 
         Subtract(operand1, operand2, result);
+        reverseStr(result, strlen(result));
         printf("X - Y = %s\n", result);
 
         printf("\n");
@@ -114,8 +118,6 @@ void Add(char *op1, char *op2, char *result)
     }
     else
         result[maxlen] = '\0';
-
-    reverseStr(result, strlen(result));
 }
 
 void Subtract(char *op1, char *op2, char *result)
@@ -172,7 +174,6 @@ void Subtract(char *op1, char *op2, char *result)
         result[big_len] = '-';
         result[big_len + 1] = '\0';
     }
-
-    reverseStr(result, strlen(result));
 }
+
 
